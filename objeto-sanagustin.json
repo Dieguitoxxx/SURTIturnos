@@ -1,0 +1,15 @@
+{
+  "nombreProyecto": "GastroTurnos Pro",
+  "repositorio": "SURTIturnos",
+  "descripcion": "Aplicación móvil híbrida para control de turnos de personal en restaurantes y cálculo de costos/márgenes de platos.",
+  "integrantes": [
+    "Juan Diego Triana",
+    "Nombre de tu compañero/a"
+  ],
+  "tecnologias": ["Node.js", "Vite", "Vanilla JavaScript", "Capacitor", "Android SDK"],
+  "archivosPrincipales": {
+    "apk": "proyecto/GastroTurnos.apk",
+    "icono": "proyecto/assets/icon.png",
+    "codigoFuente": "proyecto/main.js"
+  }
+}

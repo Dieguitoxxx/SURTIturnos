@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>GastroTurnos Pro</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="app-container">
+      <!-- Encabezado estilo App Nativa -->
+      <header class="app-header">
+        <div>
+          <span class="badge-live">● SISTEMA ACTIVO</span>
+          <h1>GastroTurnos</h1>
+          <p class="subtitle">Gestión de Personal y Costos</p>
+        </div>
+        <div class="header-stats" id="headerCount">0 Activos</div>
+      </header>
+
+      <!-- VISTA 1: CONTROL DE TURNOS -->
+      <main id="view-turnos" class="view active">
+        <section class="card">
+          <h2>Registrar Turno de Personal</h2>
+          <form id="formTurno">
+            <div class="input-group">
+              <label>Nombre del colaborador</label>
+              <input type="text" id="empNombre" placeholder="Ej. Carlos Ramírez" required />
+            </div>
+            <div class="row-2">
+              <div class="input-group">
+                <label>Cargo / Área</label>
+                <select id="empRol">
+                  <option value="Parrilla / Asadero">🔥 Parrilla / Asadero</option>
+                  <option value="Cocina">🍳 Cocina</option>
+                  <option value="Servicio / Mesas">🍽️ Servicio / Mesas</option>
+                  <option value="Caja / Admin">💵 Caja / Admin</option>
+                  <option value="Domicilios">🛵 Domicilios</option>
+                </select>
+              </div>
+              <div class="input-group">
+                <label>Franja Horaria</label>
+                <select id="empHorario">
+                  <option value="Apertura (6am - 2pm)">Apertura</option>
+                  <option value="Pico Almuerzo (10am - 6pm)">Pico Almuerzo</option>
+                  <option value="Cierre (2pm - 10pm)">Cierre</option>
+                </select>
+              </div>
+            </div>
+            <button type="submit" class="btn-primary">+ Registrar Ingreso</button>
+          </form>
+        </section>
+
+        <section class="list-section">
+          <div class="section-title">
+            <h2>Personal en Piso</h2>
+            <button id="btnLimpiarTurnos" class="btn-text">Reiniciar día</button>
+          </div>
+          <div id="listaTurnos" class="cards-list"></div>
+        </section>
+      </main>
+
+      <!-- VISTA 2: CALCULADORA DE COSTOS Y PLATOS -->
+      <main id="view-costos" class="view">
+        <section class="card">
+          <h2>Escandallo Rápido de Plato</h2>
+          <form id="formCosto">
+            <div class="input-group">
+              <label>Nombre del Plato o Combo</label>
+              <input type="text" id="platoNombre" placeholder="Ej. Medio Pollo con Acompañamiento" required />
+            </div>
+            <div class="row-2">
+              <div class="input-group">
+                <label>Costo Insumos ($ COP)</label>
+                <input type="number" id="platoCosto" placeholder="Ej. 14500" min="100" required />
+              </div>
+              <div class="input-group">
+                <label>Margen Deseado (%)</label>
+                <input type="number" id="platoMargen" value="35" min="5" max="90" required />
+              </div>
+            </div>
+            <button type="submit" class="btn-primary">Calcular Precio Sugerido</button>
+          </form>
+        </section>
+
+        <section class="list-section">
+          <div class="section-title">
+            <h2>Catálogo de Rentabilidad</h2>
+          </div>
+          <div id="listaCostos" class="cards-list"></div>
+        </section>
+      </main>
+
+      <!-- VISTA 3: OBJETO DEL PROYECTO (REPO SANAGUSTIN) -->
+      <main id="view-info" class="view">
+        <section class="card">
+          <h2>Objeto del Proyecto (JSON / JS)</h2>
+          <p class="helper-text">
+            Estructura del objeto lista para el repositorio de la clase y ficha técnica del APK.
+          </p>
+          <pre id="jsonPreview" class="code-box"></pre>
+          <button id="btnCopiarObjeto" class="btn-primary">📋 Copiar Objeto para el Repo</button>
+        </section>
+      </main>
+
+      <!-- Barra de Navegación Inferior estilo Android -->
+      <nav class="bottom-nav">
+        <button class="nav-item active" data-target="view-turnos">
+          <span class="nav-icon">👥</span>
+          <span>Turnos</span>
+        </button>
+        <button class="nav-item" data-target="view-costos">
+          <span class="nav-icon">📊</span>
+          <span>Costos</span>
+        </button>
+        <button class="nav-item" data-target="view-info">
+          <span class="nav-icon">📦</span>
+          <span>Objeto Repo</span>
+        </button>
+      </nav>
+    </div>
+
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
